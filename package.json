@@ -1,0 +1,65 @@
+{
+    "name": "privacy-center-customer",
+    "version": "1.4.0",
+    "description": "Customer-residing PC app.",
+    "engines": {
+        "node": "15.x"
+    },
+    "main": "index.js",
+    "scripts": {
+        "pretest": "eslint --ignore-path .gitignore .",
+        "lintfix": "eslint --fix --ignore-path .gitignore .",
+        "start": "echo For local runs, use 'heroku local <keyInProcfile>', heroku itself uses Procfile",
+        "test": "jest",
+        "coverage": "jest --coverage",
+        "pre-commit": "./pre-commit.sh"
+    },
+    "pre-commit": [
+        "pre-commit"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Phennecs/privacy-center-customer.git"
+    },
+    "author": "zac.taylor@salesforce.com",
+    "license": "Restricted",
+    "bugs": {
+        "url": "https://github.com/Phennecs/privacy-center-customer/issues"
+    },
+    "homepage": "https://github.com/Phennecs/privacy-center-customer#readme",
+    "dependencies": {
+        "axios": "^0.21.1",
+        "axios-auth-refresh": "^3.0.0",
+        "body-parser": "^1.19.0",
+        "bull": "^3.20.0",
+        "csv": "^5.3.2",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "express-sslify": "^1.2.0",
+        "helmet": "^4.2.0",
+        "jsforce": "^1.10.0",
+        "object-sizeof": "^1.6.1",
+        "pg": "^8.4.2",
+        "pg-format": "^1.0.4",
+        "throng": "^5.0.0"
+    },
+    "devDependencies": {
+        "eslint": "^7.13.0",
+        "got": "^11.8.0",
+        "jest": "^26.6.3",
+        "precommit-hook": "^3.0.0",
+        "tape": "^5.0.1"
+    },
+    "jest": {
+        "collectCoverageFrom": [
+            "**/*.{js,jsx,mjs}",
+            "!**/node_modules/**",
+            "!**/public/**",
+            "!**/dist/**",
+            "!transformTest.js",
+            "!**/errors/**",
+            "!**/coverage/**"
+        ]
+    },
+    "private": true
+}

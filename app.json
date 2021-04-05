@@ -1,0 +1,49 @@
+{
+    "name": "Customer 360 Privacy Center App",
+    "description": "Customer 360 Privacy Center Salesforce App. Resides in the customer's Heroku Private Space. Includes Postgres, Redis, and Privacy Center add-ons.",
+    "repository": "",
+    "logo": "https://avatars3.githubusercontent.com/u/44413492?s=200&v=4",
+    "keywords": [ "node", "express", "salesforce" ],
+    "stack": "heroku-20",
+    "env": {
+        "NODE_OPTIONS": {
+            "description": "Do not change this value.",
+            "value": "--max_old_space_size=1024",
+            "required": true
+        },
+        "LOG_CONCURRENCY": {
+            "description": "Do not change this value.",
+            "value": "true",
+            "required": true
+        },
+        "WEB_MEMORY": {
+            "description": "Do not change this value.",
+            "value": "1024",
+            "required": true
+        }
+    },
+    "formation": {
+        "web": {
+            "quantity": 1,
+            "size": "private-s"
+        },
+        "workerbulk": {
+            "quantity": 1,
+            "size": "private-l"
+        }
+    },
+    "addons": [
+        {
+            "plan": "heroku-postgresql:private-6"
+        },
+        {
+            "plan": "heroku-redis:private-7"
+        },
+        {
+            "plan": "herokuconnect:test"
+        },
+        {
+            "plan": "privacycenter-staging:test"
+        }
+    ]
+}
